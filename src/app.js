@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('node:path');
 const indexRouter = require('./routes/indexRouter');
+const newMessageRouter = require('./routes/newMessageRouter')
 const app = express();
 
 //set view engine as EJS
@@ -14,6 +15,7 @@ app.use(express.static(assetsPath));
 const PORT = process.env.PORT || 3000;
 
 app.use('/', indexRouter);
+app.use('/new', newMessageRouter)
 
 app.listen(PORT, () => {
     console.log(`mini-message-board initiated - listening on port ${PORT}`)
