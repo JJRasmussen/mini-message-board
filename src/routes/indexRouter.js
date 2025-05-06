@@ -24,7 +24,7 @@ indexRouter.post('/new', (req, res) => {
 indexRouter.get('/details', (req,res) => {    
     const id = parseInt(req.query.id); 
     if (messages[id]){
-        res.render('details', message = messages[id]);    
+        res.render('details', { message: messages[id] });    
     } else {
         res.status(404).send("Message not found");
     }
