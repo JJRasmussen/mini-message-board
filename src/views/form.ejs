@@ -1,8 +1,12 @@
-<form method="POST" action="/new">
+<form class="newMessageForm" method="POST" action="/new">
     <h1>Create New Message</h1>
-    <label for="messageUser">Name:</label>
-    <input type="text" id="messageUser" name="messageUser">
-    <label for="messageText">Message</label>
-    <input type="text" id="messageText" name="messageText">  
-    <input type="submit" value="submit">  
+    <div class="inputContainer">
+        <label for="messageUser">Name:</label>
+        <input class="input" type="text" id="messageUser" name="messageUser" placeholder="Jeppe" required>
+    </div>
+    <div class="inputContainer"> 
+        <label for="messageText">Message</label>
+        <textarea name="messageText" class="input" id="messageText" placeholder="Hello world!" required></textarea>     
+    </div>
+    <input class="newMessageButton" type="submit" value="submit">  
 </form>
