@@ -1,0 +1,29 @@
+const db = require('../db/queries');
+
+async function createNewMessageGet(req, res){
+    res.render('index', {title: 'Mini Messageboard', messages: messages })
+}
+
+async function createNewMessagePost(req, res){
+    const { messageText, messageUser } = req.body;
+    await db.createNewMessage(messageText, messageUser);
+    res.redirect('/');
+}
+
+async function messageDetailsGet(req,res){    
+    const id = parseInt(req.query.id);
+    const { row } = await pool.query(
+        'SELECT * FROM messages WHERE id = ($1)',[id]
+    );
+    if (row){
+        res.render('details', { message: row})
+    } else {
+        res.status(404).send('Message not found');
+    }
+};
+
+module.exports = {
+    createNewMessageGet,
+    createNewMessagePost,
+    messageDetailsGet
+}
