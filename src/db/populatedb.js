@@ -1,9 +1,5 @@
 const { Client } = require('pg');
 require('dotenv').config({ path: '../.env' });
-console.log("db username: " + process.env.DATABASE_USERNAME)
-console.log("db pass: " + process.env.DATABASE_PASSWORD)
-console.log("db host: " + process.env.DATABASE_HOST)
-console.log("db name: " + process.env.DATABASE_NAME)
 
 const timeOfPost = new Date().toISOString();
 
