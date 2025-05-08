@@ -1,7 +1,10 @@
 const db = require('../db/queries');
 
+console.log("messagecontroller says:")
+
 async function createNewMessageGet(req, res){
-    res.render('index', {title: 'Mini Messageboard', messages: messages })
+    const rows = await db.getAllMessages();
+    res.render('index', {title: 'Mini Messageboard', messages: rows })
 }
 
 async function createNewMessagePost(req, res){
@@ -12,9 +15,11 @@ async function createNewMessagePost(req, res){
 
 async function messageDetailsGet(req,res){    
     const id = parseInt(req.query.id);
-    const { row } = await pool.query(
-        'SELECT * FROM messages WHERE id = ($1)',[id]
-    );
+    const row = await db.getMessageDetails(id)
+
+    console.log("messageDetailsGet says that row is:")
+    console.log(row)
+
     if (row){
         res.render('details', { message: row})
     } else {
