@@ -1,57 +1,172 @@
+:root{
+    --primary-color: rgb(98, 111, 71);
+    --secondary-color: rgb(164, 180, 101);
+    --tertiary-color: rgb(255, 207, 80);
+    --quarternary-color: rgb(254, 250, 224);
+
+    --text-color: var(--quarternary-color);
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+    display: grid;
+    width: 100vw;
+    max-width: 100%;
+    padding: 0px;
+    background-color: var(--primary-color);
+    grid-template-columns: 220px 120px 1fr 340px;
+    margin-bottom: 48px;
+    box-sizing: border-box;
+}
+header > h1 {
+    grid-area: 1/3/2/4;
+    align-self: center;
+    justify-self: center;
+    color: var(--text-color);
+}
+.homeLink{
+    grid-area: 1/1/2/2;
+    justify-self: center;
+    align-self: center;
+    font-size: 2.4em;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.homepageLink{
+    grid-area: 1/4/2/5;
+    justify-self: center;
+    align-self: center;
+    font-size: 2em;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 body{
-    background-color: teal;
+    background-color: var(--secondary-color);
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items:center;
+    justify-content: space-between;
 }
-
 .newMessageForm{
     display: flex;
     flex-direction: column;
+    align-items: space-between;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     gap: 16px;
-    background-color: peachpuff;
     padding: 12px;
     border-radius: 8px;
+    width: 30vw;
+    margin-bottom: 48px;
+}
+.newMessageForm > h2 {
+    align-self: center;
 }
 .inputContainer{
     display:flex;
     justify-content: space-between;
-
+    align-items: center;
+    font-size: 1.2em;
 }
 .input{
+    padding: 2px;
+    width: 65%;
+    min-width: 65%;
+    max-width: 65%;
+    height: 2.5em;
+    background-color: var(--quarternary-color);
+    color: var(--primary-color);
+    font-size: 0.8em;
     border-radius: 4px;
     border:none;
+    line-height: 2.2em;
+}
+.input::placeholder{
+    color: var(--tertiary-color)
 }
 
 .newMessageButton{
     width: 100px;
     height: 40px;
-    background-color: rgb(182, 113, 53);
+    background-color: var(--tertiary-color);
     border: none;
     border-radius: 4px;
     font-size: 1.4em;
     align-self: center;
+    color: var(--text-color);
+    cursor: pointer;
 }
-
 .messageContainer{
     display:flex;
     flex-direction: column; 
     gap: 16px;
 }
-.messageContainer > div{
+.message{
     display:flex;
     flex-direction: column;
-    background-color: whitesmoke;
-    border-radius: 4px;
-    width: 65vw;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    width: 50vw;
     gap: 8px;
-    border: black solid 1px;
 }
 .messageText{
-    margin:0;
     padding:8px;
     overflow-wrap: break-word;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--text-color);
+
 }
 .messageLink{
+    align-self: end;
+    justify-self: center;
+    background-color: var(--tertiary-color);
+    padding: 4px;
+    margin: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+footer{
+    background-color: var(--primary-color);
+    display: flex;
+    align-self: end;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 48px;
+    width: 100vw;
+    margin-top: 48px;
+    color: var(--text-color);
+}
+
+.messageDetailsContainer{
+    display: flex;
+    flex-direction: row;
+    min-height: 180px;
+    height: auto;
+    width: 400px;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 8px;
+    align-self: center;
+    justify-self: center;
+}
+
+.messageDetails{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.messageDetailsContainer > a {
     align-self: end;
 }
