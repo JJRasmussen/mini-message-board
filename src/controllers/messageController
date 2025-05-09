@@ -16,10 +16,6 @@ async function createNewMessagePost(req, res){
 async function messageDetailsGet(req,res){    
     const id = parseInt(req.query.id);
     const row = await db.getMessageDetails(id)
-
-    console.log("messageDetailsGet says that row is:")
-    console.log(row)
-
     if (row){
         res.render('details', { message: row})
     } else {

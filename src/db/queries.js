@@ -8,14 +8,14 @@ async function createNewMessage(messageText, messageUser){
 
 async function getAllMessages(){
     const { rows } = await pool.query(
-        'SELECT text FROM messages'
+        'SELECT text, id FROM messages'
     );
     return rows;
 }
 
 async function getMessageDetails(id){    
     const { rows } = await pool.query(
-        'SELECT * FROM messages WHERE id = ($1)',[id + 1] 
+        'SELECT * FROM messages WHERE id = ($1)',[id] 
     );
     return rows[0];
 };
