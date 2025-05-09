@@ -1,7 +1,9 @@
 const { Client } = require('pg');
+const { format } = require('date-fns')
 require('dotenv').config({ path: '../.env' });
 
-const timeOfPost = new Date().toISOString();
+const timeOfPost = format(new Date(), "hh:mm 'on' dd/MM/yyyy");
+
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages (

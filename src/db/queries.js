@@ -14,8 +14,6 @@ async function getAllMessages(){
 }
 
 async function getMessageDetails(id){    
-    console.log("messageDetailsGet says that id is:")
-    console.log(id)
     const { rows } = await pool.query(
         'SELECT * FROM messages WHERE id = ($1)',[id + 1] 
     );
