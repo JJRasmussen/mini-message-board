@@ -162,11 +162,8 @@ footer{
 
 .messageDetails{
     display:flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
     align-items: space-between;
-}
-
-.messageDetailsContainer > a {
-    align-self: end;
 }
