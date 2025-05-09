@@ -32,7 +32,7 @@ console.log("db_Port" +db_Port)
 async function main() {
     console.log('seeding...');
     const client = new Client({
-        connectionString: `postgresql://${db_Username}:${db_Password}@${db_Host}:${db_Port}/${db_Name}`,
+        connectionString: `postgresql://${db_Username}:${db_Password}@${db_Host}:${db_Port}/${db_Name}?sslmode=require`,
     });
     await client.connect();
     await client.query(SQL);
