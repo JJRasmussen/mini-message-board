@@ -15,24 +15,16 @@ INSERT INTO messages (text, author, added) VALUES
     ('Hi There!', 'Amando', '${timeOfPost}'),
     ('Hello World!', 'Charles', '${timeOfPost}');    
 `
-
 const db_Name = process.env.DATABASE_NAME;
 const db_Username = process.env.DATABASE_USERNAME;
 const db_Password = process.env.DATABASE_PASSWORD;
 const db_Host = process.env.DATABASE_HOST;
 const db_Port = process.env.DATABASE_PORT;
-console.log("db_Name:" + db_Name)
-console.log("db_Username" + db_Username)
-console.log("db_Password" +db_Password)
-console.log("db_Host" +db_Host)
-console.log("db_Port" +db_Port)
-
-
 
 async function main() {
     console.log('seeding...');
     const client = new Client({
-        connectionString: `postgresql://${db_Username}:${db_Password}@${db_Host}:${db_Port}/${db_Name}?sslmode=require`,
+        connectionString: `postgresql://${db_Username}:${db_Password}@${db_Host}:${db_Port}/${db_Name}?sslmode=require`, //sslmode=require is needed when externally acessing Render db
     });
     await client.connect();
     await client.query(SQL);

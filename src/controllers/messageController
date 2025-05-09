@@ -4,7 +4,7 @@ console.log("messagecontroller says:")
 
 async function createNewMessageGet(req, res){
     const rows = await db.getAllMessages();
-    res.render('index', {title: 'Mini Messageboard', messages: rows })
+    res.render('index', { messages: rows })
 }
 
 async function createNewMessagePost(req, res){
